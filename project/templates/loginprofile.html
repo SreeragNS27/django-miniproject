@@ -1,0 +1,80 @@
+{% extends 'loginindex.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-wrapper">
+    <div class="profile-card">
+        <h2>User Profile</h2>
+        <hr>
+        <p><strong>Name :</strong> {{ data.name }}</p>
+        
+        <p><strong>Username :</strong> {{ data.user_id.username }}</p>
+        <p><strong>Age :</strong>{{ data.age }}</p>
+        <p><strong>Place :</strong>{{ data.place }}</p>
+        <p><strong>Email :</strong> {{ data.user_id.email }}</p>
+        
+        <a href="{% url 'logout' %}">
+            <button>Logout</button>
+        </a>
+        <a href="{% url 'profileedit' %}">
+            <button>edit</button>
+        </a>
+    </div>
+</div>
+
+<style>
+   
+.profile-wrapper {
+    height: 100vh;
+    margin-top:40px ;
+    margin-bottom:40px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdfdfd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-card {
+    background-color:#5AAC4E;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+    text-align: center; 
+}
+
+.profile-card h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.profile-card p {
+    font-size: 26px;
+    margin: 40px 150px;
+    
+    text-align: left;
+    
+}
+
+.profile-card button {
+    font-size: 20px;
+    margin: 20px 20px;
+   
+    padding: 12px 20px;
+    background-color: #ffffff;
+    color:#5AAC4E;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.profile-card button:hover {
+    background-color: #025f2d;
+    color: white;
+}
+</style>
+{% endblock %}

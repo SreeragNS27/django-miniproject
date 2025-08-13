@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<div class="form-wrapper">
+    <div class="formcontainer">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">login</button>
+        </form>
+        <a href="{% url 'password_reset' %}" class="forgotpassword">forgot Password</a>
+    </div>
+</div>
+{{error}}
+<style>
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #eef2f7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.formcontainer {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.formcontainer form input,
+.formcontainer form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 14px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.formcontainer form button {
+    background-color: #00ad09;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  
+}
+.formcontainer form button:hover {
+    background-color: #023f0a;
+}
+.formcontainer .forgotpassword{
+    font-size: 15px;
+    display: block;
+    margin: 30px auto 0 auto; 
+    text-align: center;
+    color: #0073e6;
+}
+.formcontainer .forgotpassword:hover{
+    color:#00478f;
+}
+
+
+</style>
+{% endblock %}

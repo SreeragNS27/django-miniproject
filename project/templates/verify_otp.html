@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+<div class="form-wrapper">
+    <div class="formcontainer">
+        <h2>Verify OTP</h2>
+        <form action="{% url 'verify_otp' %}" method="post">
+            {% csrf_token %}
+            
+          
+            <input type="hidden" name="otpold" value="{{ otp }}">
+            <input type="hidden" name="email" value="{{ email }}">
+
+            
+            <label for="otp">Enter OTP</label>
+            <input type="text" id="otp" name="otp" placeholder="Enter the OTP sent to your email" required>
+
+            <button type="submit">Verify OTP</button>
+        </form>
+    </div>
+</div>
+
+<style>
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #eef2f7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.formcontainer {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.formcontainer h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formcontainer form input,
+.formcontainer form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.formcontainer form button {
+    background-color: #00ad09;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.formcontainer form button:hover {
+    background-color: #023f0a;
+}
+</style>
+
+{% endblock %}

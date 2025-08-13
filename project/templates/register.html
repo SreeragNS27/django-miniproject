@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<div class="form-wrapper">
+    <div class="formcontainer">
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name">
+            <input type="number" name="age" placeholder="Age">
+            <input type="text" name="place" placeholder="Place">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Register</button>
+        </form>
+        <a href="{% url 'login' %}" class="login-link">Login</a>
+    </div>
+   
+</div>
+
+
+<style>
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #eef2f7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.formcontainer {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.formcontainer form input,
+.formcontainer form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 14px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.formcontainer form button {
+    background-color: #027536;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  
+}
+
+.formcontainer form button:hover {
+    background-color: #023f0a;
+}
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    background-color:#027536;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.login-link:hover {
+    background-color: #023f0a;
+}
+
+</style>
+{% endblock %}
