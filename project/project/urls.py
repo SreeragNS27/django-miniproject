@@ -26,7 +26,7 @@ urlpatterns = [
     path('blog',views.blog,name='blog'),
    
     path('blog_details',views.blog_details,name='blog_details'),
-    path('contact',views.contact,name='contact'),
+    
     path('elements',views.elements,name='elements'),
     path('register',views.register,name='register'),
     path('login',views.Login,name='login'),
@@ -34,10 +34,16 @@ urlpatterns = [
      path('logout/', views.user_logout, name='logout'),
      path('profile',views.profile,name='profile'),
      path('loginabout',views.loginabout,name='loginabout'),
-     path('loginservices',views.loginservices,name='loginservices'),
-     path('logincontact',views.logincontact,name='logincontact'),
+     
+     
      path('profileedit',views.edit,name='profileedit'),
      path('password_reset',views.password_reset_request,name='password_reset'),
      path('verify_otp',views.verify_otp,name='verify_otp'),
      path('set_new_password',views.set_new_password,name='set_new_password'),
+     path('appointment',views.book_appointment,name='appointment'),
+     path('my_appointments/', views.my_appointments, name='my_appointments'),
+    path('delete_appointment/<int:id>/', views.delete_appointment, name='delete_appointment'),
+    
+   
+   
 ]

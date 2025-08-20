@@ -120,7 +120,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nssreerag27@gmail.com'
-EMAIL_HOST_PASSWORD = 'fcfm vrax uqbt vrhd'
+EMAIL_HOST_PASSWORD = 'mlyk euxg vcbt atwe'
 DEFAULT_FROM_EMAIL = 'nssreerag27@gmail.com'
 
 STATIC_URL = 'static/'

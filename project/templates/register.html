@@ -3,6 +3,7 @@
 {% load static %}
 <div class="form-wrapper">
     <div class="formcontainer">
+        <a href="{% url 'login' %}" class="login-link">Login?</a>
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
             <input type="text" name="name" placeholder="Name">
@@ -13,7 +14,7 @@
             <input type="password" name="password" placeholder="Password">
             <button type="submit">Register</button>
         </form>
-        <a href="{% url 'login' %}" class="login-link">Login</a>
+    
     </div>
    
 </div>
@@ -68,8 +69,8 @@
     display: block;
     text-align: center;
     margin-top: 14px;
-    background-color:#027536;
-    color: white;
+    
+    color: blue;
     padding: 12px;
     border-radius: 6px;
     text-decoration: none;
@@ -77,7 +78,7 @@
 }
 
 .login-link:hover {
-    background-color: #023f0a;
+   color: rgb(1, 1, 94);
 }
 
 </style>

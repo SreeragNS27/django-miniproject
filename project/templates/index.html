@@ -58,17 +58,12 @@
                                         <ul id="navigation">
                                             
                                             <li><a href="{% url 'index' %}">Home</a></li>
-                                            <li><a href="{% url 'register' %}">register/login</a></li>
+                                            <li><a href="{% url 'register' %}">register</a></li>
+                                            <li><a href="{% url 'login' %}">login</a></li>
                                             <li><a href="{% url 'about' %}">About</a></li>
-                                            <li><a href="{% url 'services' %}">Services</a></li>
-                                            <li><a href="{% url 'blog' %}">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                                                    <li><a href="{% url 'blog_details' %}">Blog Details</a></li>
-                                                    <li><a href="{% url 'elements' %}">Element</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                            
+                                            
+                                           
                                         </ul>
                                     </nav>
                                 </div>
@@ -99,16 +94,12 @@
                         <div class="row align-items-center">
                             <div class="col-xl-7 col-lg-8 col-md-10 ">
                              <div class="hero-wrapper">
-                                <!-- Video icon -->
-                                <div class="video-icon">
-                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                                        <i class="fas fa-play"></i>
-                                    </a>
-                                </div>
+                               
+                                
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInUp" data-delay=".3s">Health is wealth  keep it healthy </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had left the ground</p>
-                                    <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a Service</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -121,16 +112,11 @@
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-8 col-md-10 ">
                          <div class="hero-wrapper">
-                            <!-- Video icon -->
-                            <div class="video-icon">
-                                <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                                    <i class="fas fa-play"></i>
-                                </a>
-                            </div>
+                           
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInUp" data-delay=".3s">Health is wealth  keep it healthy </h1>
                                 <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had left the ground</p>
-                                <a href="#" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take a Service</a>
+                                <a href="{% url 'register' %}" class="btn" data-animation="fadeInLeft" data-delay=".3s">Take Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -177,13 +163,11 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-xl-7 col-lg-9 col-md-8">
                     <div class="wantToWork-caption wantToWork-caption2">
-                        <h2>Happy mind <br>healthy life</h2>
+                        <h2>For<br>Happy mind <br>healthy life</h2>
                         <p>Almost before we knew it, we<br> had left the ground</p>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-4">
-                    <a href="services.html" class="btn f-right sm-left">Take a Service</a>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -198,9 +182,10 @@
                         <img src="{% static 'assets/img/icon/services1.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <h5>Physical health</h5>
+                        <p>"Stay active, eat healthy, and keep your body strong."
+                        "Good physical health is the key to a happy life."</p>
+                        
                     </div>
                 </div>
             </div>
@@ -210,9 +195,10 @@
                         <img src="{% static 'assets/img/icon/services2.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <h5>mental health</h5>
+                        <p>"Take breaks, breathe, and share your feelings to stay calm.
+                            Stay connected, sleep well, and do what makes you happy."</p>
+                        
                     </div>
                 </div>
             </div>
@@ -222,9 +208,10 @@
                         <img src="{% static 'assets/img/icon/services3.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <h5>Yoga</h5>
+                        <p>"Yoga keeps the body flexible and strong while calming the mind.
+                        It brings balance, peace, and energy to everyday life."</p>
+                        
                     </div>
                 </div>
             </div>
@@ -293,64 +280,11 @@
     </div>
 </div>
 <!-- video_end -->      
-<!--? Blog Area Start -->
+
 <section class="home-blog-area section-padding30">
-    <div class="container">
-        <!-- Section Tittle -->
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-9 col-sm-10">
-                <div class="section-tittle text-center mb-100">
-                    <h2>Latest Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog1.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Your daily meal plan</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog2.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Food is a great source of  medicine</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog3.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Everyday diet plan</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </section>
-<!-- Blog Area End -->
+
 <!--? About Law Start-->
 <section class="about-low-area mt-30">
     <div class="container">
@@ -363,7 +297,7 @@
                             <h2>100% satisfaction guaranteed.</h2>
                         </div>
                         <p>Almost before we knew it, we had left the ground</p>
-                        <a href="" class="border-btn">Make an Appointment</a>
+                        <a href="{% url 'register' %}" class="border-btn">Make an Appointment</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -401,9 +335,10 @@
                                                 <ul>
                                                     <li><a href="{% url 'index' %}">Home</a></li>
                                                     <li><a href="{% url 'about' %}">About</a></li>
-                                                    <li><a href="{% url 'services' %}">Services</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
+                                                     <li><a href="{% url 'register' %}">register</a></li>
+                                                    <li><a href="{% url 'login' %}">login</a></li>
+                                                    
+                                                    
                                                 </ul>
                                             </nav>
                                         </div>
@@ -412,38 +347,13 @@
                             </d>
                             <!-- social -->
                             <div class="footer-social mt-50">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                               <a href="https://www.facebook.com/profile.php?id=100023073709385"><i class="fab fa-instagram"></i></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100023073709385"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://pin.it/s0gChFGT3"><i class="fab fa-pinterest-p"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-footer-caption">
-                            <div class="footer-tittle mb-50">
-                                <h4>Subscribe newsletter</h4>
-                            </div>
-                            <!-- Form -->
-                            <div class="footer-form">
-                                <div id="mc_embed_signup">
-                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'">
-                                        <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                        <div class="mt-10 info"></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="footer-tittle">
-                                <div class="footer-pera">
-                                    <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium misem ut ipsum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

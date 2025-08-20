@@ -67,7 +67,7 @@
         </div>
     </section>
     <!--? Team End-->
-    <!-- Services End-->
+    
     <!--? About-2 Area Start -->
     <div class="about-area2 section-padding40">
         <div class="container">
@@ -161,60 +161,7 @@
 <!-- video_end -->      
 <!--? Blog Area Start -->
 <section class="home-blog-area section-padding30">
-    <div class="container">
-        <!-- Section Tittle -->
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-9 col-sm-10">
-                <div class="section-tittle text-center mb-100">
-                    <h2>Latest Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog1.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Your daily meal plan</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog2.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Food is a great source of  medicine</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="home-blog-single mb-40">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="{% static 'assets/img/gallery/blog3.png' %}" alt="">
-                        </div>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">Everyday diet plan</a></h3>
-                            <P>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi 
-                            sem ut ipsum.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </section>
 <!-- Blog Area End -->
 <!--? About Law Start-->
@@ -229,7 +176,7 @@
                             <h2>100% satisfaction guaranteed.</h2>
                         </div>
                         <p>Almost before we knew it, we had left the ground</p>
-                        <a href="" class="border-btn">Make an Appointment</a>
+                        <a href="{% url 'appointment' %}" class="border-btn">Make an Appointment</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">

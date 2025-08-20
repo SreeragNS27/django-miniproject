@@ -7,10 +7,12 @@ from django.contrib.auth import login,authenticate
 from django.contrib.auth import logout
 from django.contrib import messages
 import random
+from .models import client,Appointment
+from datetime import datetime, date, time
 
-from .models import client
 
-# Create your views here.
+
+
 def index(request):
     return render(request,'index.html')
 
@@ -180,7 +182,94 @@ def set_new_password(request):
 
 
 
-        
+
+
+# Define available slots (you can customize)
+AVAILABLE_SLOTS = [
+    time(9, 0),
+    time(10, 0),
+    time(11, 0),
+    time(14, 0),
+    time(15, 0),
+    time(16, 0),
+]
+
+@login_required
+def book_appointment(request):
+    # 1️⃣ Get selected date (from GET or default today)
+    selected_date_str = request.GET.get('date')
+    if selected_date_str:
+        try:
+            selected_date = datetime.strptime(selected_date_str, "%Y-%m-%d").date()
+        except ValueError:
+            selected_date = date.today()
+    else:
+        selected_date = date.today()
+
+    # 2️⃣ Find already booked slots for that date
+    booked_slots = list(
+        Appointment.objects.filter(date=selected_date).values_list('time', flat=True)
+    )
+    slots = [
+        {"time": s, "booked": s in booked_slots} for s in AVAILABLE_SLOTS
+    ]
+
+    # 3️⃣ Handle booking submission
+    if request.method == "POST":
+        name = request.POST['name']
+        age = request.POST['age']
+        email = request.POST['email']
+        phone = request.POST['phone']
+
+        # Date will come directly from POST as YYYY-MM-DD
+        appointment_date = datetime.strptime(request.POST['date'], "%Y-%m-%d").date()
+        time_slot = time.fromisoformat(request.POST['time'])
+
+        # Prevent double booking
+        if Appointment.objects.filter(date=appointment_date, time=time_slot).exists():
+            return redirect(f'/book_appointment/?date={appointment_date}')
+
+        Appointment.objects.create(
+            user=request.user,
+            name=name,
+            age=age,
+            email=email,
+            phone=phone,
+            date=appointment_date,
+            time=time_slot,
+            status="Pending"
+        )
+        return redirect('my_appointments')
+
+    return render(
+        request,
+        "book_appointment.html",
+        {"slots": slots, "selected_date": selected_date}
+    )
+
+
+
+
+
+
+@login_required
+def my_appointments(request):
+    appointments = Appointment.objects.filter(user=request.user).order_by("-date", "-time")
+    return render(request, "my_appointments.html", {"appointments": appointments})
+
+
+@login_required
+def delete_appointment(request, id):
+    appointment = Appointment.objects.get(id=id, user=request.user)
+    appointment.delete()
+    
+    return redirect('my_appointments')
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,97 @@
+{% extends 'loginindex.html' %}
+{% load static %}
+{% block content %}
+<h2 class="title">My Appointments</h2>
+<table class="appointment-table">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  {% for a in appointments %}
+  <tr>
+    <td>{{ a.name }}</td>
+    <td>{{ a.age }}</td>
+    <td>{{ a.email }}</td>
+    <td>{{ a.phone }}</td>
+    <td>{{ a.date }}</td>
+    <td>{{ a.time }}</td>
+    <td class="{% if a.status == 'Pending' %}status-pending{% else %}status-approved{% endif %}">
+      {{ a.status }}
+    </td>
+    <td>
+      <a href="{% url 'delete_appointment' a.id %}" class="btn-delete">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<style>
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 26px;
+  color: #00ad09;
+}
+
+
+.appointment-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.appointment-table th {
+  background: #00ad09;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 15px;
+}
+
+
+.appointment-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.appointment-table tr:hover {
+  background: #eafbea;
+}
+
+
+.status-pending {
+  color: #f39c12;
+  font-weight: bold;
+}
+.status-approved {
+  color: #00ad09;
+  font-weight: bold;
+}
+.btn-delete{
+    color: white;
+    background-color: red;
+    padding: 2px 9px;
+    border-radius: 20px;
+}
+.btn-delete:hover{
+    background-color: rgb(148, 0, 0);
+}
+</style>
+{% endblock %}
+
+/* Delete button */
