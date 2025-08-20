@@ -196,7 +196,7 @@ AVAILABLE_SLOTS = [
 
 @login_required
 def book_appointment(request):
-    # 1️⃣ Get selected date (from GET or default today)
+    # Get selected date (from GET or default today)
     selected_date_str = request.GET.get('date')
     if selected_date_str:
         try:
@@ -206,7 +206,7 @@ def book_appointment(request):
     else:
         selected_date = date.today()
 
-    # 2️⃣ Find already booked slots for that date
+    #Find already booked slots for that date
     booked_slots = list(
         Appointment.objects.filter(date=selected_date).values_list('time', flat=True)
     )
@@ -214,7 +214,7 @@ def book_appointment(request):
         {"time": s, "booked": s in booked_slots} for s in AVAILABLE_SLOTS
     ]
 
-    # 3️⃣ Handle booking submission
+    # Handle booking submission
     if request.method == "POST":
         name = request.POST['name']
         age = request.POST['age']
